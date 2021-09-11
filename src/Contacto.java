@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author luis_
+ * @author luis_/Desarrollo
  */
 import Entidad.Contactos;
 import Deal.ContactoDeal;
@@ -144,7 +138,18 @@ public class Contacto extends javax.swing.JFrame {
             contactos.setCorreoElectronico(txtMail.getText());
             contactos.setMensaje(txtMensaje.getText());
             //Llamar a una clase de java
-            contactoDeal.Alta(contactos);
+            if(contactoDeal.Alta(contactos)){
+                 System.out.println("Se agrego correctamente la consulta");
+                 txtNombre.setText("");
+                 txtAsunto.setText("");
+                 txtMail.setText("");
+                 txtMensaje.setText("");
+                 
+            }
+            else{
+                System.out.println("Error al agregar la consulta");
+            }
+            
             /*
             gson-2.2.2.jar
 java.net.HttpURLConnection;
@@ -152,7 +157,7 @@ java.net.HttpURLConnection;
         }
         catch(Exception e)
         {
-            
+             System.out.println(e);
         }
 
     }//GEN-LAST:event_btnEnviarActionPerformed
