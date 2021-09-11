@@ -21,6 +21,7 @@ public class ContactoDeal {
                 return  api.ContactoAlta(contactos);
                 
         } catch (Exception e) {
+            System.out.println(e);
         }
         return false;
     }
