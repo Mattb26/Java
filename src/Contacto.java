@@ -9,6 +9,7 @@
  * @author luis_
  */
 import Entidad.Contactos;
+import Deal.ContactoDeal;
 
 public class Contacto extends javax.swing.JFrame {
 
@@ -135,13 +136,15 @@ public class Contacto extends javax.swing.JFrame {
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         try
         {
+            ContactoDeal contactoDeal = new ContactoDeal();
+            
             Contactos contactos = new Contactos();
             contactos.setNombre(txtNombre.getText());
             contactos.setAsunto(txtAsunto.getText());
             contactos.setCorreoElectronico(txtMail.getText());
             contactos.setMensaje(txtMensaje.getText());
             //Llamar a una clase de java
-            String valor = "";
+            contactoDeal.Alta(contactos);
             /*
             gson-2.2.2.jar
 java.net.HttpURLConnection;

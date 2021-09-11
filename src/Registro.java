@@ -8,7 +8,6 @@
  *
  * @author luis_
  */
-import Deal.Contactos;
 
 public class Registro extends javax.swing.JFrame {
 
