@@ -156,14 +156,25 @@ public class Registro extends javax.swing.JFrame {
                 Date fecha=new Date();
            
                 PersonaUsuario personaUsuario= new PersonaUsuario();
-                personaUsuario.setNombre(txtNombre.getText());
-                personaUsuario.setApellido(txtApellido.getText());
-                personaUsuario.setCorreoElectronico(txtMail.getText());
-                //personaUsuario.setFechaNacimiento(fecha.getTime());
-                login.setNombreUsuario(txtUsuario.getText());
-                login.setClave(cripto.Cadena(txtPass.getText()));
-                personaUsuario.setUsuario(login);
-                System.out.println(cripto.Cadena(txtPass.getText()));
+                if(txtNombre.getText().isEmpty() && txtApellido.getText().isEmpty() &&
+                        txtMail.getText().isEmpty()&& txtUsuario.getText().isEmpty()&&
+                        txtPass.getText().isEmpty()){
+                
+                    personaUsuario.setNombre(txtNombre.getText());
+                    personaUsuario.setApellido(txtApellido.getText());
+                    personaUsuario.setCorreoElectronico(txtMail.getText());
+                    //personaUsuario.setFechaNacimiento(fecha.getTime());
+                    login.setNombreUsuario(txtUsuario.getText());
+                    login.setClave(cripto.Cadena(txtPass.getText()));
+                    personaUsuario.setUsuario(login);
+
+                    System.out.println(cripto.Cadena(txtPass.getText()));
+                }
+                else{
+                    //Datos que no cumplen con la condicion
+                    
+                }
+
                 
         } catch (Exception e) {
         }

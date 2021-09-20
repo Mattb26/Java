@@ -39,4 +39,19 @@ public class Usuario {
         }
         return false;
     }
+
+    public boolean AgregarUsuario(PersonaUsuario personaUsuario){
+        try {
+                
+            //armo el json
+            
+            
+            
+            //llamo a la api para el alta
+            
+            
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }
