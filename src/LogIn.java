@@ -4,6 +4,7 @@
  */
 import  Entidad.Login;
 import Deal.Usuario;
+import Seguridad.Cripto;
 
 public class LogIn extends javax.swing.JFrame {
 
@@ -161,15 +162,18 @@ public class LogIn extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         try {
+            Cripto cripto= new Cripto();
             if (!(txtUsuario.getText().trim().equals(""))&& 
                 !(txtClaveLogin.getText().trim().equals(""))) {
                     Login logins=new Login();
                     logins.setNombreUsuario(txtUsuario.getText());
-                    logins.setClave(txtClaveLogin.getText());
+                    logins.setClave(cripto.Cadena(txtClaveLogin.getText()));
                     Usuario usuario = new Usuario();
                     
                     if(usuario.LoginValidar(logins)){
-                    
+                        Menu m = new Menu();
+                        m.setVisible(true);
+                        this.setVisible(false);
                     }
                     
             }else{

@@ -6,6 +6,7 @@ import Seguridad.Cripto;
 import Entidad.PersonaUsuario;
 import Entidad.Login;
 import java.util.Date;
+import Deal.Usuario;
 
 public class Registro extends javax.swing.JFrame {
 
@@ -154,11 +155,12 @@ public class Registro extends javax.swing.JFrame {
                 Cripto cripto= new Cripto();
                 Login login = new Login();
                 Date fecha=new Date();
-           
+                Usuario usuario = new Usuario();
+                
                 PersonaUsuario personaUsuario= new PersonaUsuario();
-                if(txtNombre.getText().isEmpty() && txtApellido.getText().isEmpty() &&
-                        txtMail.getText().isEmpty()&& txtUsuario.getText().isEmpty()&&
-                        txtPass.getText().isEmpty()){
+                if(!txtNombre.getText().isEmpty() && !txtApellido.getText().isEmpty() &&
+                        !txtMail.getText().isEmpty()&& !txtUsuario.getText().isEmpty()&&
+                        !txtPass.getText().isEmpty()){
                 
                     personaUsuario.setNombre(txtNombre.getText());
                     personaUsuario.setApellido(txtApellido.getText());
@@ -169,6 +171,12 @@ public class Registro extends javax.swing.JFrame {
                     personaUsuario.setUsuario(login);
 
                     System.out.println(cripto.Cadena(txtPass.getText()));
+                    
+                    if(usuario.AgregarUsuario(personaUsuario)){
+                        LogIn l = new LogIn();
+                        l.setVisible(true);
+                        this.setVisible(false);
+                    }
                 }
                 else{
                     //Datos que no cumplen con la condicion
