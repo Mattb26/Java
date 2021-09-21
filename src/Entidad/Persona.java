@@ -7,11 +7,11 @@ import java.util.Date;
  * @author Desarrollo
  */
 public class Persona {
-    public int IdPersona;
-    public String Nombre ;
-    public String Apellido;
-    public String CorreoElectronico;
-    public Date FechaNacimiento;
+    private int IdPersona;
+    private String Nombre ;
+    private String Apellido;
+    private String CorreoElectronico;
+    private Date FechaNacimiento;
 
     public int getIdPersona() {
         return IdPersona;
