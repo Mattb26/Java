@@ -5,6 +5,7 @@
 import  Entidad.Login;
 import Deal.Usuario;
 import Seguridad.Cripto;
+import javax.swing.JOptionPane;
 
 public class LogIn extends javax.swing.JFrame {
 
@@ -174,10 +175,13 @@ public class LogIn extends javax.swing.JFrame {
                         Menu m = new Menu();
                         m.setVisible(true);
                         this.setVisible(false);
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Por favor verifique los datos ingresados","Error",JOptionPane.WARNING_MESSAGE);
                     }
                     
             }else{
                   System.out.println("Ingreso al else");
+                  JOptionPane.showMessageDialog(this, "Por favor verifique los datos ingresados","Error",JOptionPane.WARNING_MESSAGE);
 
             }
 

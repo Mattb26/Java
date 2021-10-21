@@ -4,6 +4,7 @@
  */
 import Entidad.Contactos;
 import Deal.ContactoDeal;
+import javax.swing.JOptionPane;
 
 public class Contacto extends javax.swing.JFrame {
 
@@ -144,9 +145,10 @@ public class Contacto extends javax.swing.JFrame {
                  txtAsunto.setText("");
                  txtMail.setText("");
                  txtMensaje.setText("");
-                 
+                 JOptionPane.showMessageDialog(this, "A la brevedad lo estaremos contactando","Correcto",JOptionPane.INFORMATION_MESSAGE);
             }
             else{
+                JOptionPane.showMessageDialog(this, "Por favor intente contactarnos más tarde","Error",JOptionPane.ERROR_MESSAGE);
                 System.out.println("Error al agregar la consulta");
             }
             

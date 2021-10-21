@@ -7,6 +7,7 @@ import Entidad.PersonaUsuario;
 import Entidad.Login;
 import java.util.Date;
 import Deal.Usuario;
+import javax.swing.JOptionPane;
 
 public class Registro extends javax.swing.JFrame {
 
@@ -173,14 +174,18 @@ public class Registro extends javax.swing.JFrame {
                     System.out.println(cripto.Cadena(txtPass.getText()));
                     
                     if(usuario.AgregarUsuario(personaUsuario)){
+                        
+                        JOptionPane.showMessageDialog(this, "Se registro correctamente el usuario","Correcto",JOptionPane.INFORMATION_MESSAGE);
                         LogIn l = new LogIn();
                         l.setVisible(true);
                         this.setVisible(false);
+                        
+                        
                     }
                 }
                 else{
                     //Datos que no cumplen con la condicion
-                    
+                    JOptionPane.showMessageDialog(this, "Por favor verifique que estén completos los campos","Error",JOptionPane.INFORMATION_MESSAGE);
                 }
 
                 
