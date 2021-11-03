@@ -124,4 +124,35 @@ public class Api {
         }
         return null;
     }
+    
+    
+    public HttpResponse<String> LlamadoHttpResponseGet(String uriString)
+    {
+        
+        try {
+        
+        System.out.println(uriString);
+        
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(uriString))
+                .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
+                .header("Content-Type", "application/json")
+                .build();
+        
+          HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+         
+          System.out.println(response.statusCode());
+
+        // print response body
+        System.out.println(response.body());     
+        
+        return  response;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
 }

@@ -6,13 +6,15 @@ import java.util.Date;
  *
  * @author Desarrollo
  */
-public class Persona {
+public class Persona{
     private int IdPersona;
+    private String nombreUsuario;
     private String Nombre ;
     private String Apellido;
     private String CorreoElectronico;
     private Date FechaNacimiento;
-
+    private String FechaNacimientoString;
+    
     public int getIdPersona() {
         return IdPersona;
     }
@@ -53,4 +55,19 @@ public class Persona {
         this.FechaNacimiento = FechaNacimiento;
     }
 
+    public String getFechaNacimientoString() {
+        return FechaNacimientoString;
+    }
+
+    public void setFechaNacimientoString(String FechaNacimientoString) {
+        this.FechaNacimientoString = FechaNacimientoString;
+    }
+    
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 }

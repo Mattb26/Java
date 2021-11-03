@@ -5,6 +5,7 @@
 import  Entidad.Login;
 import Deal.Usuario;
 import Seguridad.Cripto;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class LogIn extends javax.swing.JFrame {
@@ -86,36 +87,34 @@ public class LogIn extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtClaveLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(txtUsuario))
-                        .addGap(290, 290, 290))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(btnIngresar)
                         .addGap(38, 38, 38)
-                        .addComponent(btnCancelar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(42, 42, 42))
+                        .addComponent(btnCancelar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2))
+                            .addGap(39, 39, 39)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUsuario)
+                                .addComponent(txtClaveLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,7 +131,7 @@ public class LogIn extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addGap(96, 96, 96))
+                .addContainerGap())
         );
 
         pack();
@@ -163,17 +162,24 @@ public class LogIn extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         try {
+            Usuario usuario = new Usuario();
+            
             Cripto cripto= new Cripto();
             if (!(txtUsuario.getText().trim().equals(""))&& 
                 !(txtClaveLogin.getText().trim().equals(""))) {
                     Login logins=new Login();
                     logins.setNombreUsuario(txtUsuario.getText());
                     logins.setClave(cripto.Cadena(txtClaveLogin.getText()));
-                    Usuario usuario = new Usuario();
+                    //Usuario usuario = new Usuario();
                     
                     if(usuario.LoginValidar(logins)){
+                        /*
                         Menu m = new Menu();
                         m.setVisible(true);
+                        this.setVisible(false);
+                        */
+                        Listado l = new Listado();
+                        l.setVisible(true);
                         this.setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(this, "Por favor verifique los datos ingresados","Error",JOptionPane.WARNING_MESSAGE);
