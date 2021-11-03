@@ -93,11 +93,11 @@ public class Usuario {
                 Servicios.Api llamadoApi = new Api();
                 HttpResponse<String> response = llamadoApi.LlamadoHttpResponseGet("http://localhost:47261/api/Persona/usuario");
 
-                System.out.println(response);
+                //System.out.println(response);
                 //JSONParser parser = new JSONParser();
                 
                 
-                System.out.println(response.body());
+                //System.out.println(response.body());
                 
                 /*List<Entidad.Persona> List;
                 List = parser.parse(response.body());   */
@@ -116,20 +116,32 @@ public class Usuario {
                     Entidad.Persona pers= new Entidad.Persona();
                     Date startDate;
                     JSONObject obj2 = (JSONObject)jsonArray.get(i);
-                    System.out.println(obj2.get("nombreUsuario"));
-                    System.out.println(obj2.get("idPersona"));
-                    System.out.println(obj2.get("nombre"));
-                    System.out.println(obj2.get("apellido"));
-                    System.out.println(obj2.get("correoElectronico"));
-                    System.out.println(obj2.get("fechaNacimiento"));
+                    //System.out.println(obj2.get("nombreUsuario"));
+                    //System.out.println(obj2.get("idPersona"));
+                    //System.out.println(obj2.get("nombre"));
+                    //System.out.println(obj2.get("apellido"));
+                    //System.out.println(obj2.get("correoElectronico"));
+                    //System.out.println(obj2.get("fechaNacimiento"));
                     
                     pers.setIdPersona(Integer.parseInt(obj2.get("idPersona").toString()));
                     pers.setNombre(obj2.get("nombre").toString());
                     pers.setApellido(obj2.get("apellido").toString());
                     pers.setCorreoElectronico(obj2.get("correoElectronico").toString());
-                    pers.setFechaNacimientoString(obj2.get("fechaNacimiento").toString());
+                    
                     pers.setNombreUsuario(obj2.get("nombreUsuario").toString());
     
+                    
+                    String date =obj2.get("fechaNacimiento").toString();
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    Date parsed = format.parse(date);
+                    java.sql.Date sql = new java.sql.Date(parsed.getTime());                  
+                    
+                    //System.out.println(sql);
+                    //System.out.println(parsed);
+                    
+                    
+                    pers.setFechaNacimientoString(sql.toString());
+                    
                     List.add(pers);
                }
                
